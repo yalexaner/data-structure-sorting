@@ -4,13 +4,11 @@ import java.util.Random;
 
 public class ArrayGenerator {
 
-    private static final int ELEMENTS_AMOUNT = 10_000;
-
-    public static int[] generateArray() {
+    public static int[] generateArray(int elements) {
         Random rand = new Random();
-        int[] array = new int[ELEMENTS_AMOUNT];
+        int[] array = new int[elements];
         for (int i = 0; i < array.length; i++) {
-            array[i] = 1 + rand.nextInt(ELEMENTS_AMOUNT);
+            array[i] = 1 + rand.nextInt(elements);
         }
         return array;
     }
