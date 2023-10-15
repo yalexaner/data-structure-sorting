@@ -3,6 +3,14 @@ package generator;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * ArrayList - структура данных, внутри которой находится массив.
+ * <p>
+ * У этой структуры данных есть возможность добавлять и удалять элементы,
+ * при этом размер массива будет увеличиваться или уменьшаться по мере необходимости.
+ * <p>
+ * Сложность: добавление - O(1), получение элемента - O(1).
+ */
 public class ArrayGenerator implements BaseGenerator {
 
     @Override
