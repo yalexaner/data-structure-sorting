@@ -9,9 +9,9 @@ package sorting;
  * <p>
  * Сложность: в худшем случае - O(n^2), в лучшем - O(n).
  */
-public class BubbleSort {
+public class BubbleSort implements BaseSort {
 
-    public static void sort(int[] arr) {
+    public void sort(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {

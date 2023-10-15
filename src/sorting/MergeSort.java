@@ -12,13 +12,13 @@ package sorting;
  * <p>
  * Сложность: в любом случае - O(n*log(n)).
  */
-public class MergeSort {
+public class MergeSort implements BaseSort {
 
-    public static void sort(int[] arr) {
+    public void sort(int[] arr) {
         sort(arr, 0, arr.length - 1);
     }
 
-    public static void sort(int[] arr, int l, int r) {
+    private void sort(int[] arr, int l, int r) {
         if (l < r) {
             int m = (l + r) / 2;
             sort(arr, l, m);
@@ -27,7 +27,7 @@ public class MergeSort {
         }
     }
 
-    private static void merge(int[] arr, int l, int m, int r) {
+    private void merge(int[] arr, int l, int m, int r) {
         int n1 = m - l + 1;
         int n2 = r - m;
         int[] L = new int[n1];

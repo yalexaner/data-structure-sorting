@@ -9,9 +9,9 @@ package sorting;
  * <p>
  * Сложность: в худшем случае - O(n^2), в лучшем - O(n).
  */
-public class InsertionSort {
+public class InsertionSort implements BaseSort {
 
-    public static void sort(int[] arr) {
+    public void sort(int[] arr) {
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
             int key = arr[i];

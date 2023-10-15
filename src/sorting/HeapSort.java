@@ -8,9 +8,9 @@ package sorting;
  * <p>
  * Сложность: в любом случае - O(n*log(n)).
  */
-public class HeapSort {
+public class HeapSort implements BaseSort {
 
-    public static void sort(int[] arr) {
+    public void sort(int[] arr) {
         int n = arr.length;
         for (int i = n / 2 - 1; i >= 0; i--) {
             heapify(arr, n, i);
@@ -23,7 +23,7 @@ public class HeapSort {
         }
     }
 
-    private static void heapify(int[] arr, int n, int i) {
+    private void heapify(int[] arr, int n, int i) {
         int largest = i;
         int l = 2 * i + 1;
         int r = 2 * i + 2;

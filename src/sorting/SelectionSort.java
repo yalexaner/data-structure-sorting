@@ -9,9 +9,9 @@ package sorting;
  * <p>
  * Сложность: в любом случае - O(n^2).
  */
-public class SelectionSort {
+public class SelectionSort implements BaseSort {
 
-    public static void sort(int[] arr) {
+    public void sort(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
             int minIdx = i;
