@@ -1,5 +1,6 @@
 import generator.ArrayGenerator;
 import generator.ListGenerator;
+import generator.VectorGenerator;
 import sorting.*;
 
 import java.time.Duration;
@@ -21,7 +22,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.print("Выберите структуру данных (1 - массив, 2 - список, ENTER - выйти): ");
+            System.out.print("Выберите структуру данных (1 - массив, 2 - список, 3 - вектор, ENTER - выйти): ");
 
             int input;
             try {
@@ -49,6 +50,10 @@ public class Main {
                 ListGenerator listGenerator = new ListGenerator();
                 List<Integer> list = listGenerator.generate(elementsAmount);
                 sortCollection(list);
+            } else if (input == 3) {
+                VectorGenerator vectorGenerator = new VectorGenerator();
+                List<Integer> vector = vectorGenerator.generate(elementsAmount);
+                sortCollection(vector);
             } else {
                 break;
             }
