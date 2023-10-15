@@ -43,16 +43,13 @@ public class Main {
             System.out.println();
 
             if (input == 1) {
-                ArrayGenerator arrayGenerator = new ArrayGenerator();
-                ArrayList<Integer> array = arrayGenerator.generate(elementsAmount);
+                ArrayList<Integer> array = ArrayGenerator.generate(elementsAmount);
                 sortCollection(array);
             } else if (input == 2) {
-                ListGenerator listGenerator = new ListGenerator();
-                List<Integer> list = listGenerator.generate(elementsAmount);
+                List<Integer> list = ListGenerator.generate(elementsAmount);
                 sortCollection(list);
             } else if (input == 3) {
-                VectorGenerator vectorGenerator = new VectorGenerator();
-                List<Integer> vector = vectorGenerator.generate(elementsAmount);
+                List<Integer> vector = VectorGenerator.generate(elementsAmount);
                 sortCollection(vector);
             } else {
                 break;

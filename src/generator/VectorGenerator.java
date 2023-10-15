@@ -10,10 +10,9 @@ import java.util.Vector;
  * <p>
  * Сложность: добавление - O(1), получение элемента - O(1).
  */
-public class VectorGenerator implements BaseGenerator {
+public class VectorGenerator {
 
-    @Override
-    public Vector<Integer> generate(int elementsAmount) {
+    public static Vector<Integer> generate(int elementsAmount) {
         Random rand = new Random();
         Vector<Integer> list = new Vector<>();
         for (int i = 0; i < elementsAmount; i++) {

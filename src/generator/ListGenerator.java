@@ -11,10 +11,9 @@ import java.util.Random;
  * <p>
  * Сложность: добавление - O(1), получение элемента - O(n).
  */
-public class ListGenerator implements BaseGenerator {
+public class ListGenerator {
 
-    @Override
-    public LinkedList<Integer> generate(int elementsAmount) {
+    public static LinkedList<Integer> generate(int elementsAmount) {
         Random rand = new Random();
         LinkedList<Integer> list = new LinkedList<>();
         for (int i = 0; i < elementsAmount; i++) {

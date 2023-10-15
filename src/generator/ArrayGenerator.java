@@ -11,10 +11,9 @@ import java.util.Random;
  * <p>
  * Сложность: добавление - O(1), получение элемента - O(1).
  */
-public class ArrayGenerator implements BaseGenerator {
+public class ArrayGenerator {
 
-    @Override
-    public ArrayList<Integer> generate(int elementsAmount) {
+    public static ArrayList<Integer> generate(int elementsAmount) {
         Random rand = new Random();
         ArrayList<Integer> array = new ArrayList<>(elementsAmount);
         for (int i = 0; i < elementsAmount; i++) {
