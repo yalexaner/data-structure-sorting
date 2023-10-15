@@ -1,5 +1,7 @@
 package sorting;
 
+import utility.SortingProgress;
+
 /**
  * Сортировка выбором.
  * <p>
@@ -12,8 +14,12 @@ package sorting;
 public class SelectionSort implements BaseSort {
 
     public void sort(int[] arr) {
+        SortingProgress progress = new SortingProgress(arr.length);
+
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
+            progress.printProgressMessage();
+
             int minIdx = i;
             for (int j = i + 1; j < n; j++) {
                 if (arr[j] < arr[minIdx]) {
@@ -24,5 +30,7 @@ public class SelectionSort implements BaseSort {
             arr[minIdx] = arr[i];
             arr[i] = temp;
         }
+
+        progress.clearOutput();
     }
 }

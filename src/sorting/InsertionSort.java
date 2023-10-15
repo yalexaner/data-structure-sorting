@@ -1,5 +1,7 @@
 package sorting;
 
+import utility.SortingProgress;
+
 /**
  * Сортировка вставками.
  * <p>
@@ -12,8 +14,12 @@ package sorting;
 public class InsertionSort implements BaseSort {
 
     public void sort(int[] arr) {
+        SortingProgress progress = new SortingProgress(arr.length);
+
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
+            progress.printProgressMessage();
+
             int key = arr[i];
             int j = i - 1;
             while (j >= 0 && arr[j] > key) {
@@ -22,5 +28,7 @@ public class InsertionSort implements BaseSort {
             }
             arr[j + 1] = key;
         }
+
+        progress.clearOutput();
     }
 }

@@ -13,8 +13,8 @@ public class Main {
 
         BaseSort[] sortingAlgorithms = {
                 new BubbleSort(),
-                new InsertionSort(),
                 new SelectionSort(),
+                new InsertionSort(),
                 new HeapSort(),
                 new MergeSort(),
         };
@@ -22,10 +22,12 @@ public class Main {
         for (BaseSort algorithm : sortingAlgorithms) {
             int[] arrayCopy = array.clone();
             Instant start = Instant.now();
+
+            System.out.println("Сортировка с помощью алгоритма " + algorithm.getClass().getSimpleName());
             algorithm.sort(arrayCopy);
+
             Instant end = Instant.now();
-            System.out.println("Sorting algorithm: " + algorithm.getClass().getSimpleName());
-            System.out.println("Time taken for array with: " + Duration.between(start, end));
+            System.out.println("Сортировка заняла " + Duration.between(start, end).toMillis() + " ms\n");
         }
     }
 }

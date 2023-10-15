@@ -1,5 +1,7 @@
 package sorting;
 
+import utility.SortingProgress;
+
 /**
  * Сортировка пузырьком.
  * <p>
@@ -12,8 +14,12 @@ package sorting;
 public class BubbleSort implements BaseSort {
 
     public void sort(int[] arr) {
+        SortingProgress progress = new SortingProgress(arr.length);
+
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
+            progress.printProgressMessage();
+
             for (int j = 0; j < n - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
                     int temp = arr[j];
@@ -22,5 +28,7 @@ public class BubbleSort implements BaseSort {
                 }
             }
         }
+
+        progress.clearOutput();
     }
 }
