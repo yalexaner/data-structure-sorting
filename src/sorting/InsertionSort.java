@@ -2,6 +2,8 @@ package sorting;
 
 import utility.SortingProgress;
 
+import java.util.List;
+
 /**
  * Сортировка вставками.
  * <p>
@@ -13,20 +15,21 @@ import utility.SortingProgress;
  */
 public class InsertionSort implements BaseSort {
 
-    public void sort(int[] arr) {
-        SortingProgress progress = new SortingProgress(arr.length);
+    @Override
+    public void sort(List<Integer> list) {
+        SortingProgress progress = new SortingProgress(list.size());
 
-        int n = arr.length;
+        int n = list.size();
         for (int i = 1; i < n; ++i) {
             progress.printProgressMessage();
 
-            int key = arr[i];
+            int key = list.get(i);
             int j = i - 1;
-            while (j >= 0 && arr[j] > key) {
-                arr[j + 1] = arr[j];
+            while (j >= 0 && list.get(j) > key) {
+                list.set(j + 1, list.get(j));
                 j = j - 1;
             }
-            arr[j + 1] = key;
+            list.set(j + 1, key);
         }
 
         progress.clearOutput();

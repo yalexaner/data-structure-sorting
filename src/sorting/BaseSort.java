@@ -1,5 +1,7 @@
 package sorting;
 
+import java.util.List;
+
 public interface BaseSort {
-    void sort(int[] arr);
+    void sort(List<Integer> list);
 }

@@ -1,14 +1,16 @@
 package generator;
 
+import java.util.ArrayList;
 import java.util.Random;
 
-public class ArrayGenerator {
+public class ArrayGenerator implements BaseGenerator {
 
-    public static int[] generateArray(int elements) {
+    @Override
+    public ArrayList<Integer> generate(int elementsAmount) {
         Random rand = new Random();
-        int[] array = new int[elements];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = 1 + rand.nextInt(elements);
+        ArrayList<Integer> array = new ArrayList<>(elementsAmount);
+        for (int i = 0; i < elementsAmount; i++) {
+            array.add(1 + rand.nextInt(elementsAmount));
         }
         return array;
     }

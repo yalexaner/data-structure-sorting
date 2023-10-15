@@ -2,6 +2,8 @@ package sorting;
 
 import utility.SortingProgress;
 
+import java.util.List;
+
 /**
  * Сортировка выбором.
  * <p>
@@ -13,22 +15,23 @@ import utility.SortingProgress;
  */
 public class SelectionSort implements BaseSort {
 
-    public void sort(int[] arr) {
-        SortingProgress progress = new SortingProgress(arr.length);
+    @Override
+    public void sort(List<Integer> list) {
+        SortingProgress progress = new SortingProgress(list.size());
 
-        int n = arr.length;
+        int n = list.size();
         for (int i = 0; i < n - 1; i++) {
             progress.printProgressMessage();
 
             int minIdx = i;
             for (int j = i + 1; j < n; j++) {
-                if (arr[j] < arr[minIdx]) {
+                if (list.get(j) < list.get(minIdx)) {
                     minIdx = j;
                 }
             }
-            int temp = arr[minIdx];
-            arr[minIdx] = arr[i];
-            arr[i] = temp;
+            int temp = list.get(minIdx);
+            list.set(minIdx, list.get(i));
+            list.set(i, temp);
         }
 
         progress.clearOutput();

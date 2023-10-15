@@ -2,6 +2,8 @@ package sorting;
 
 import utility.SortingProgress;
 
+import java.util.List;
+
 /**
  * Сортировка пузырьком.
  * <p>
@@ -13,18 +15,19 @@ import utility.SortingProgress;
  */
 public class BubbleSort implements BaseSort {
 
-    public void sort(int[] arr) {
-        SortingProgress progress = new SortingProgress(arr.length);
+    @Override
+    public void sort(List<Integer> list) {
+        SortingProgress progress = new SortingProgress(list.size());
 
-        int n = arr.length;
+        int n = list.size();
         for (int i = 0; i < n - 1; i++) {
             progress.printProgressMessage();
 
             for (int j = 0; j < n - i - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
+                if (list.get(j) > list.get(j + 1)) {
+                    int temp = list.get(j);
+                    list.set(j, list.get(j + 1));
+                    list.set(j + 1, temp);
                 }
             }
         }
