@@ -2,6 +2,7 @@ package sorting;
 
 import utility.SortingProgress;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -32,6 +33,28 @@ public class SelectionSort implements BaseSort {
             int temp = list.get(minIdx);
             list.set(minIdx, list.get(i));
             list.set(i, temp);
+        }
+
+        progress.clearOutput();
+    }
+
+    @Override
+    public void sort(HashMap<Integer, Integer> map) {
+        SortingProgress progress = new SortingProgress(map.size());
+
+        int n = map.size();
+        for (int i = 0; i < n - 1; i++) {
+            progress.printProgressMessage();
+
+            int minIdx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (map.get(j) < map.get(minIdx)) {
+                    minIdx = j;
+                }
+            }
+            int temp = map.get(minIdx);
+            map.put(minIdx, map.get(i));
+            map.put(i, temp);
         }
 
         progress.clearOutput();

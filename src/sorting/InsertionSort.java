@@ -2,6 +2,7 @@ package sorting;
 
 import utility.SortingProgress;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -30,6 +31,26 @@ public class InsertionSort implements BaseSort {
                 j = j - 1;
             }
             list.set(j + 1, key);
+        }
+
+        progress.clearOutput();
+    }
+
+    @Override
+    public void sort(HashMap<Integer, Integer> map) {
+        SortingProgress progress = new SortingProgress(map.size());
+
+        int n = map.size();
+        for (int i = 1; i < n; ++i) {
+            progress.printProgressMessage();
+
+            int key = map.get(i);
+            int j = i - 1;
+            while (j >= 0 && map.get(j) > key) {
+                map.put(j + 1, map.get(j));
+                j = j - 1;
+            }
+            map.put(j + 1, key);
         }
 
         progress.clearOutput();

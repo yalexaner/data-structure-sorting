@@ -1,5 +1,6 @@
 package sorting;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -26,7 +27,6 @@ public class HeapSort implements BaseSort {
         }
     }
 
-
     private void heapify(List<Integer> list, int n, int i) {
         int largest = i;
         int l = 2 * i + 1;
@@ -42,6 +42,38 @@ public class HeapSort implements BaseSort {
             list.set(i, list.get(largest));
             list.set(largest, swap);
             heapify(list, n, largest);
+        }
+    }
+
+    @Override
+    public void sort(HashMap<Integer, Integer> map) {
+        int n = map.size();
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapify(map, n, i);
+        }
+        for (int i = n - 1; i >= 0; i--) {
+            int temp = map.get(0);
+            map.put(0, map.get(i));
+            map.put(i, temp);
+            heapify(map, i, 0);
+        }
+    }
+
+    private void heapify(HashMap<Integer, Integer> map, int n, int i) {
+        int largest = i;
+        int l = 2 * i + 1;
+        int r = 2 * i + 2;
+        if (l < n && map.get(l) > map.get(largest)) {
+            largest = l;
+        }
+        if (r < n && map.get(r) > map.get(largest)) {
+            largest = r;
+        }
+        if (largest != i) {
+            int swap = map.get(i);
+            map.put(i, map.get(largest));
+            map.put(largest, swap);
+            heapify(map, n, largest);
         }
     }
 }

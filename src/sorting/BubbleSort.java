@@ -2,6 +2,7 @@ package sorting;
 
 import utility.SortingProgress;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -28,6 +29,25 @@ public class BubbleSort implements BaseSort {
                     int temp = list.get(j);
                     list.set(j, list.get(j + 1));
                     list.set(j + 1, temp);
+                }
+            }
+        }
+
+        progress.clearOutput();
+    }
+
+    @Override
+    public void sort(HashMap<Integer, Integer> map) {
+        SortingProgress progress = new SortingProgress(map.size());
+
+        for (int i = 0; i < map.size(); i++) {
+            progress.printProgressMessage();
+
+            for (int j = 0; j < map.size() - i - 1; j++) {
+                if (map.get(j) > map.get(j + 1)) {
+                    int temp = map.get(j);
+                    map.put(j, map.get(j + 1));
+                    map.put(j + 1, temp);
                 }
             }
         }
