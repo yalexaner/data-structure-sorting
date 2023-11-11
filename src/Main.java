@@ -32,6 +32,10 @@ public class Main {
                 break;
             }
 
+            if (input < 1 || input > 3) {
+                break;
+            }
+
             System.out.print("Введите количество элементов: ");
 
             int elementsAmount;
