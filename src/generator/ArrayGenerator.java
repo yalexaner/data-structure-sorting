@@ -1,5 +1,7 @@
 package generator;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -16,9 +18,17 @@ public class ArrayGenerator {
     public static ArrayList<Integer> generate(int elementsAmount) {
         Random rand = new Random();
         ArrayList<Integer> array = new ArrayList<>(elementsAmount);
+
+        Instant start = Instant.now();
+
         for (int i = 0; i < elementsAmount; i++) {
             array.add(1 + rand.nextInt(elementsAmount));
         }
+
+        Instant end = Instant.now();
+
+        System.out.println("Время заполнения массива " + Duration.between(start, end).toMillis() / 1000f + " секунд");
+
         return array;
     }
 }
