@@ -1,5 +1,7 @@
 package sorting;
 
+import structure.BaseStructure;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -17,4 +19,11 @@ public interface BaseSort {
      * @param map словарь
      */
     void sort(HashMap<Integer, Integer> map);
+
+    /**
+     * Сортировка очереди или стека.
+     *
+     * @param structure очередь или стек
+     */
+    void sort(BaseStructure structure);
 }

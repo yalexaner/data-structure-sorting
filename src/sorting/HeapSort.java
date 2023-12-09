@@ -1,5 +1,7 @@
 package sorting;
 
+import structure.BaseStructure;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -74,6 +76,34 @@ public class HeapSort implements BaseSort {
             map.put(i, map.get(largest));
             map.put(largest, swap);
             heapify(map, n, largest);
+        }
+    }
+
+    @Override
+    public void sort(BaseStructure structure) {
+        int n = structure.size();
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapify(structure, n, i);
+        }
+        for (int i = n - 1; i >= 0; i--) {
+            structure.swap(0, i);
+            heapify(structure, i, 0);
+        }
+    }
+
+    private void heapify(BaseStructure structure, int n, int i) {
+        int largest = i;
+        int l = 2 * i + 1;
+        int r = 2 * i + 2;
+        if (l < n && structure.get(l) > structure.get(largest)) {
+            largest = l;
+        }
+        if (r < n && structure.get(r) > structure.get(largest)) {
+            largest = r;
+        }
+        if (largest != i) {
+            structure.swap(i, largest);
+            heapify(structure, n, largest);
         }
     }
 }

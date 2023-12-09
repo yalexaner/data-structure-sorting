@@ -1,5 +1,6 @@
 package sorting;
 
+import structure.BaseStructure;
 import utility.SortingProgress;
 
 import java.util.HashMap;
@@ -55,6 +56,28 @@ public class SelectionSort implements BaseSort {
             int temp = map.get(minIdx);
             map.put(minIdx, map.get(i));
             map.put(i, temp);
+        }
+
+        progress.clearOutput();
+    }
+
+    @Override
+    public void sort(BaseStructure structure) {
+        SortingProgress progress = new SortingProgress(structure.size());
+
+        int n = structure.size();
+        for (int i = 0; i < n - 1; i++) {
+            progress.printProgressMessage();
+
+            int minIdx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (structure.get(j) < structure.get(minIdx)) {
+                    minIdx = j;
+                }
+            }
+            int temp = structure.get(minIdx);
+            structure.set(minIdx, structure.get(i));
+            structure.set(i, temp);
         }
 
         progress.clearOutput();

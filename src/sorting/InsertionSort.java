@@ -1,5 +1,6 @@
 package sorting;
 
+import structure.BaseStructure;
 import utility.SortingProgress;
 
 import java.util.HashMap;
@@ -51,6 +52,26 @@ public class InsertionSort implements BaseSort {
                 j = j - 1;
             }
             map.put(j + 1, key);
+        }
+
+        progress.clearOutput();
+    }
+
+    @Override
+    public void sort(BaseStructure structure) {
+        SortingProgress progress = new SortingProgress(structure.size());
+
+        int n = structure.size();
+        for (int i = 1; i < n; ++i) {
+            progress.printProgressMessage();
+
+            int key = structure.get(i);
+            int j = i - 1;
+            while (j >= 0 && structure.get(j) > key) {
+                structure.set(j + 1, structure.get(j));
+                j = j - 1;
+            }
+            structure.set(j + 1, key);
         }
 
         progress.clearOutput();

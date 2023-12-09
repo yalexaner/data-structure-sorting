@@ -1,5 +1,6 @@
 package sorting;
 
+import structure.BaseStructure;
 import utility.SortingProgress;
 
 import java.util.HashMap;
@@ -48,6 +49,24 @@ public class BubbleSort implements BaseSort {
                     int temp = map.get(j);
                     map.put(j, map.get(j + 1));
                     map.put(j + 1, temp);
+                }
+            }
+        }
+
+        progress.clearOutput();
+    }
+
+    @Override
+    public void sort(BaseStructure structure) {
+        SortingProgress progress = new SortingProgress(structure.size());
+
+        int n = structure.size();
+        for (int i = 0; i < n - 1; i++) {
+            progress.printProgressMessage();
+
+            for (int j = 0; j < n - i - 1; j++) {
+                if (structure.get(j) > structure.get(j + 1)) {
+                    structure.swap(j, j + 1);
                 }
             }
         }

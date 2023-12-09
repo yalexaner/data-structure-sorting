@@ -1,5 +1,7 @@
 package sorting;
 
+import structure.BaseStructure;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -110,6 +112,55 @@ public class MergeSort implements BaseSort {
         }
         while (j < n2) {
             map.put(k, R[j]);
+            j++;
+            k++;
+        }
+    }
+
+    @Override
+    public void sort(BaseStructure structure) {
+        sort(structure, 0, structure.size() - 1);
+    }
+
+    private void sort(BaseStructure structure, int l, int r) {
+        if (l < r) {
+            int m = (l + r) / 2;
+            sort(structure, l, m);
+            sort(structure, m + 1, r);
+            merge(structure, l, m, r);
+        }
+    }
+
+    private void merge(BaseStructure structure, int l, int m, int r) {
+        int n1 = m - l + 1;
+        int n2 = r - m;
+        int[] L = new int[n1];
+        int[] R = new int[n2];
+        for (int i = 0; i < n1; ++i) {
+            L[i] = structure.get(l + i);
+        }
+        for (int j = 0; j < n2; ++j) {
+            R[j] = structure.get(m + 1 + j);
+        }
+        int i = 0, j = 0;
+        int k = l;
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                structure.set(k, L[i]);
+                i++;
+            } else {
+                structure.set(k, R[j]);
+                j++;
+            }
+            k++;
+        }
+        while (i < n1) {
+            structure.set(k, L[i]);
+            i++;
+            k++;
+        }
+        while (j < n2) {
+            structure.set(k, R[j]);
             j++;
             k++;
         }
