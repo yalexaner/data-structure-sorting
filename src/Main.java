@@ -1,7 +1,8 @@
-import generator.ArrayGenerator;
-import generator.ListGenerator;
-import generator.MapGenerator;
+import generator.*;
 import sorting.*;
+import structure.BaseStructure;
+import structure.Queue;
+import structure.Stack;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -23,7 +24,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.print("Выберите структуру данных (1 - массив, 2 - список, 3 - словарь, ENTER - выйти): ");
+            System.out.print("Выберите структуру данных (1 - массив, 2 - список, 3 - словарь, 4 - очередь, 5 - стек, ENTER - выйти): ");
 
             int input;
             try {
@@ -32,7 +33,7 @@ public class Main {
                 break;
             }
 
-            if (input < 1 || input > 3) {
+            if (input < 1 || input > 5) {
                 break;
             }
 
@@ -57,6 +58,12 @@ public class Main {
                 } else if (input == 3) {
                     HashMap<Integer, Integer> map = MapGenerator.generate(elementsAmount);
                     sortCollection(map, algorithm);
+                } else if (input == 4) {
+                    Queue queue = QueueGenerator.generate(elementsAmount);
+                    sortCollection(queue, algorithm);
+                } else if (input == 5) {
+                    Stack stack = StackGenerator.generate(elementsAmount);
+                    sortCollection(stack, algorithm);
                 } else {
                     break;
                 }
@@ -83,6 +90,16 @@ public class Main {
 
         Instant start = Instant.now();
         algorithm.sort(map);
+        Instant end = Instant.now();
+
+        System.out.println("Сортировка заняла " + Duration.between(start, end).toMillis() / 1000f + " секунд");
+    }
+
+    private static void sortCollection(BaseStructure collection, BaseSort algorithm) {
+        System.out.println("Сортировка с помощью алгоритма " + algorithm.getClass().getSimpleName());
+
+        Instant start = Instant.now();
+        algorithm.sort(collection);
         Instant end = Instant.now();
 
         System.out.println("Сортировка заняла " + Duration.between(start, end).toMillis() / 1000f + " секунд");
