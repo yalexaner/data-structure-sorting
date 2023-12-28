@@ -27,7 +27,7 @@ public class ListGenerator {
 
         Instant end = Instant.now();
 
-        System.out.println("Время заполнения списка " + Duration.between(start, end).toMillis() / 1000f + " секунд");
+        System.out.println("Время заполнения списка " + Duration.between(start, end).toMillis() / 1000f + " секунд\n");
 
         return list;
     }
