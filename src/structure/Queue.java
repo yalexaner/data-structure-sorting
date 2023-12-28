@@ -55,4 +55,14 @@ public class Queue implements BaseStructure {
         list.set(index1, list.get(index2));
         list.set(index2, temp);
     }
+
+    @Override
+    public BaseStructure copy() {
+        Queue queue = new Queue();
+        for (Integer integer : list) {
+            queue.enqueue(integer);
+        }
+
+        return queue;
+    }
 }

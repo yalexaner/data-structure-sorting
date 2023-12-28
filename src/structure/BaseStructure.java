@@ -16,4 +16,6 @@ public interface BaseStructure {
 
     // меняет местами элементы по индексам
     void swap(Integer index1, Integer index2);
+
+    BaseStructure copy();
 }

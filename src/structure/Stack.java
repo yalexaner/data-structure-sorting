@@ -55,4 +55,14 @@ public class Stack implements BaseStructure {
         list.set(index1, list.get(index2));
         list.set(index2, temp);
     }
+
+    @Override
+    public BaseStructure copy() {
+        Stack stack = new Stack();
+        for (Integer integer : list) {
+            stack.enqueue(integer);
+        }
+
+        return stack;
+    }
 }
