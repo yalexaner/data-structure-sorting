@@ -1,12 +1,9 @@
+// Функционал стека
 package structure;
 
 import java.util.LinkedList;
 
-/**
- * Стек.
- * <p>
- * Можно добавлять элементы в конец стека и удалять только элемент из конца стека.
- */
+
 public class Stack implements BaseStructure {
 
     // связанные список, которые хранит все элементы

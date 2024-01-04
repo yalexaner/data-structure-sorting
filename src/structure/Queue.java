@@ -1,12 +1,9 @@
+// Очередь
 package structure;
 
 import java.util.LinkedList;
 
-/**
- * Очередь.
- * <p>
- * Можно добавлять элементы в конец очереди и удалять элементы из начала очереди.
- */
+
 public class Queue implements BaseStructure {
 
     // связанные список, которые хранит все элементы
