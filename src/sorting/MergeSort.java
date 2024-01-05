@@ -24,6 +24,16 @@ public class MergeSort implements BaseSort {
         sort(list, 0, list.size() - 1);
     }
 
+    /**
+     * Этот метод рекурсивно сортирует подсписок list от индекса l до r.
+     * Если l меньше r, то есть если в подсписке больше одного элемента,
+     * метод делит подсписок на две половины, сортирует каждую из них рекурсивно,
+     * а затем объединяет их в один отсортированный список с помощью метода merge.
+     *
+     * @param list
+     * @param l
+     * @param r
+     */
     private void sort(List<Integer> list, int l, int r) {
         if (l < r) {
             int m = (l + r) / 2;
@@ -33,6 +43,17 @@ public class MergeSort implements BaseSort {
         }
     }
 
+    /**
+     * Этот метод объединяет два подсписка list в один отсортированный список.
+     * Подсписки находятся от l до m и от m + 1 до r.
+     * Метод создает два временных массива L и R для хранения элементов подсписков,
+     * затем сливает эти массивы обратно в list, сохраняя порядок сортировки.
+     *
+     * @param list
+     * @param l
+     * @param m
+     * @param r
+     */
     private void merge(List<Integer> list, int l, int m, int r) {
         int n1 = m - l + 1;
         int n2 = r - m;
